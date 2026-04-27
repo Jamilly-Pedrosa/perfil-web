@@ -1,0 +1,337 @@
+/* --- Variáveis CSS e Reset Obrigatórios --- */
+:root {
+    --cor-primaria: #2F6EB5;       /* Azul principal da imagem */
+    --cor-secundaria: #00C4CC;     /* Ciano/Verde para detalhes e níveis */
+    --cor-fundo: #F0F4F8;          /* Cinza muito claro azulado para o fundo */
+    --cor-fundo-card: #FFFFFF;     /* Branco para cards e seções */
+    --cor-texto: #333333;          /* Cinza escuro para texto principal */
+    --cor-texto-suave: #666666;    /* Cinza médio para descrições */
+    --cor-borda: #D1D9E0;          /* Cinza claro para bordas suaves */
+    --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    --transicao: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Estilos Gerais --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* Utilitários de Layout */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container-pequeno {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--cor-primaria);
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+/* --- Seção 1 — Cabeçalho (.cabecalho) --- */
+.cabecalho {
+    background-color: #E1EAF2; /* Tom de azul claríssimo do topo da imagem */
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column; /* Empilhado para centralizar tudo */
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid var(--cor-borda);
+    text-align: center;
+}
+
+#avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%; /* Obrigatório */
+    border: 4px solid var(--cor-fundo-card); /* Borda branca grossa */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.info-pessoal h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.profissao {
+    color: var(--cor-texto-suave);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Navegação e Links */
+.cabecalho nav {
+    background-color: var(--cor-primaria); /* Barra azul escura da imagem */
+    padding: 10px 30px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cabecalho nav ul {
+    list-style: none; /* Obrigatório */
+    display: flex; /* Obrigatório */
+    gap: 25px; /* Obrigatório */
+}
+
+.cabecalho nav a {
+    text-decoration: none; /* Obrigatório (sem sublinhado) */
+    color: #FFFFFF;
+    font-weight: 500;
+    transition: var(--transicao);
+    font-size: 0.95rem;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* Pseudo-classe :hover com cor diferente (Obrigatório) */
+.cabecalho nav a:hover,
+.cabecalho nav a.ativo {
+    color: var(--cor-secundaria);
+}
+
+/* Linha decorativa no hover/ativo */
+.cabecalho nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cor-secundaria);
+    transition: var(--transicao);
+}
+
+.cabecalho nav a:hover::after,
+.cabecalho nav a.ativo::after {
+    width: 100%;
+}
+
+/* --- Seção 2 — Cards de Habilidades (#conteudo-principal) --- */
+#conteudo-principal {
+    padding: 60px 0;
+}
+
+.cards-container {
+    display: flex; /* Flexbox para alinhar cards (Obrigatório) */
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; /* Responsividade básica */
+}
+
+/* Estilo do Card (.card) */
+.card {
+    background-color: var(--cor-fundo-card); /* Obrigatório */
+    border-radius: 12px; /* Obrigatório */
+    box-shadow: var(--sombra-card); /* Obrigatório */
+    padding: 30px; /* Obrigatório */
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: var(--transicao);
+    cursor: pointer;
+    border: 2px solid transparent; /* Borda invisível por padrão */
+}
+
+/* Pseudo-classe :hover com transform scale (Obrigatório) */
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Classe .ativo gerenciada pelo JS */
+.card.ativo {
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 15px rgba(0, 196, 204, 0.2);
+}
+
+/* Elementos internos do card */
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 8px;
+}
+.card-icon.html5 { background-color: #E34F26; } /* Cor HTML */
+.card-icon.js { background-color: var(--cor-secundaria); } /* Cor JS na imagem */
+.card-icon.figma { background-color: #a259ff; } /* Cor Figma */
+
+.card h3 {
+    font-size: 1.3rem;
+    color: var(--cor-texto);
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: var(--cor-texto-suave);
+    margin-bottom: 25px;
+    flex-grow: 1; /* Alinha os botões embaixo */
+}
+
+/* Estilo do Nível (.nivel) (Obrigatório) */
+.nivel {
+    display: inline-block; /* Obrigatório */
+    padding: 6px 15px; /* Obrigatório */
+    border-radius: 20px; /* Obrigatório */
+    font-size: 0.8rem; /* Obrigatório (menor) */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Cores específicas baseadas na imagem */
+.nivel.basico {
+    background-color: rgba(0, 196, 204, 0.15); /* Ciano suave */
+    color: var(--cor-secundaria);
+}
+
+.nivel.intermediario {
+    background-color: rgba(255, 165, 0, 0.15); /* Laranja suave */
+    color: #FF8C00;
+}
+
+/* --- Seção 3 — Formulário de Contato (#contato) --- */
+#contato {
+    background-color: var(--cor-fundo-card);
+    padding: 60px 0;
+    border-top: 1px solid var(--cor-borda);
+}
+
+/* Estilos gerais dos inputs (Obrigatório: width 100%, padding, border, border-radius) */
+.grupo-input {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%; /* Obrigatório */
+    padding: 12px 15px; /* Obrigatório */
+    border: 1px solid var(--cor-borda); /* Obrigatório */
+    border-radius: 8px; /* Obrigatório */
+    background-color: #F9FAFB;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transicao);
+}
+
+/* Pseudo-classe :focus com outline (Obrigatório) */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(47, 110, 181, 0.1);
+}
+
+/* Validação visual CSS (Obrigatório: :valid e :invalid com border-color) */
+input:not(:placeholder-shown):valid,
+select:not(:placeholder-shown):valid {
+    border-color: #28a745; /* Verde */
+}
+
+input:not(:placeholder-shown):invalid,
+select:not(:placeholder-shown):invalid {
+    border-color: #dc3545; /* Vermelho */
+}
+
+/* Estilos específicos */
+select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
+    color: var(--cor-texto-suave);
+}
+select:valid { color: var(--cor-texto); }
+
+textarea {
+    resize: vertical; /* Impede quebrar layout horizontalmente */
+}
+
+.contador {
+    font-size: 0.8rem;
+    color: var(--cor-texto-suave);
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* Botão Submit (Obrigatório: var(--cor-primaria), color white, cursor pointer + :hover) */
+button[type='submit'] {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--cor-primaria); /* Obrigatório */
+    color: #FFFFFF; /* Obrigatório */
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer; /* Obrigatório */
+    transition: var(--transicao);
+    margin-top: 10px;
+    box-shadow: 0 3px 6px rgba(47, 110, 181, 0.2);
+}
+
+button[type='submit']:hover {
+    background-color: #245892; /* Tom mais escuro para o hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(47, 110, 181, 0.3);
+}
+
+/* Estilos para mensagens de erro geradas pelo JS */
+.mensagem-erro {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* --- Rodapé --- */
+footer {
+    background-color: var(--cor-texto);
+    color: rgba(255,255,255,0.7);
+    padding: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+}

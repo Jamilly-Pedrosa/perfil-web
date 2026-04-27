@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Profissional - Jamilly</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <img id="avatar" src="img/perfil.jpg" alt="Foto de perfil profissional de Jamilly">
+        
+        <div class="info-pessoal">
+            <h1>Jamilly</h1>
+            <p class="profissao">Desenvolvedora Web</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#inicio" class="ativo">Início</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo-principal">
+        <div class="container">
+            <h2>Minhas Habilidades</h2>
+            
+            <div class="cards-container">
+                <article class="card">
+                    <div class="card-icon html5"></div>
+                    <h3>HTML5 / CSS3</h3>
+                    <p>Criação de estruturas semânticas e estilizações modernas, responsivas e acessíveis.</p>
+                    <span class="nivel intermediario">Intermediário</span>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon js"></div>
+                    <h3>JavaScript ES6+</h3>
+                    <p>Desenvolvimento de lógica de front-end, manipulação do DOM e integração com APIs.</p>
+                    <span class="nivel basico">Básico</span>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon figma"></div>
+                    <h3>UI/UX Design (Figma)</h3>
+                    <p>Prototipagem de interfaces intuitivas e focadas na experiência do usuário.</p>
+                    <span class="nivel intermediario">Intermediário</span>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section id="contato">
+        <div class="container-pequeno">
+            <h2>Entre em Contato</h2>
+            
+            <form id="form-contato">
+                <div class="grupo-input">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    </div>
+
+                <div class="grupo-input">
+                    <label for="email">E-mail Profissional</label>
+                    <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="assunto">Assunto</label>
+                    <select id="assunto" name="assunto">
+                        <option value="" disabled selected>Selecione um assunto</option>
+                        <option value="proposta">Proposta de Projeto</option>
+                        <option value="duvida">Dúvida Técnica</option>
+                        <option value="vaga">Oportunidade de Vaga</option>
+                    </select>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="mensagem">Sua Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="6" maxlength="300" placeholder="Escreva sua mensagem aqui..."></textarea>
+                    <p id="contador-caracteres" class="contador">0 / 300 caracteres</p>
+                </div>
+
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Jamilly. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
